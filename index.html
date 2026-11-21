@@ -15,8 +15,10 @@
         }
 
         html, body {
+            width: 100%;
+            height: 100vh;
             height: 100dvh;
-            overflow: hidden; /* スクロールさせずに1画面に収める */
+            overflow: hidden;
             background-color: #ffffff;
             text-align: center;
             font-family: "Kiwi Maru", serif;
@@ -31,32 +33,32 @@
 
         header {
             background-color: #194E00;
-            padding: clamp(24px, 5vh, 48px) 16px;
+            padding: 22px 16px 26px;
             box-shadow: 0 4px 8px rgba(11, 11, 11, 0.12);
-            border-bottom-left-radius: 60px;
-            border-bottom-right-radius: 60px;
+            border-bottom-left-radius: 48px;
+            border-bottom-right-radius: 48px;
             flex-shrink: 0;
         }
 
         h1 {
             color: #fff;
-            font-size: clamp(26px, 4.5vw, 44px);
-            letter-spacing: 0.6em;
-            padding-left: 0.6em; /* letter-spacing分の左右バランス補正 */
+            font-size: clamp(22px, 3.6vw, 34px);
+            letter-spacing: 0.55em;
+            padding-left: 0.55em;
         }
 
         .subtitle-section {
-            padding: 1vh 16px 0;
+            padding-top: 8px;
             flex-shrink: 0;
         }
 
         p.subtitle {
-            font-size: clamp(16px, 2.2vh, 22px);
+            font-size: clamp(15px, 2vh, 20px);
             color: #916C00;
             letter-spacing: 0.25em;
             border-bottom: 1.8px solid #916d00a3;
             display: inline-block;
-            padding-bottom: 6px;
+            padding-bottom: 4px;
             font-weight: 700;
         }
 
@@ -76,23 +78,23 @@
             align-items: flex-start;
             gap: clamp(20px, 5vw, 72px);
             width: 100%;
-            max-width: 1000px;
+            max-width: 960px;
         }
 
         .book-menu a {
             text-decoration: none;
             text-align: center;
             flex: 1;
-            max-width: 170px;
+            max-width: 160px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .book-img {
-            width: min(140px, 18vh);
-            height: auto;
-            max-height: 24vh;
+            width: auto;
+            height: 22vh;
+            max-height: 150px;
             object-fit: contain;
             transition: transform 0.25s ease;
         }
@@ -103,10 +105,10 @@
 
         .book-title {
             display: block;
-            margin-top: 10px;
-            font-size: clamp(13px, 1.8vh, 16px);
+            margin-top: 8px;
+            font-size: clamp(13px, 1.8vh, 15px);
             font-weight: bold;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         .title-green { color: #AF8D68; }
@@ -115,15 +117,15 @@
         .title-orange { color: #AF6888; }
 
         footer {
-            padding: 10px 16px 14px;
-            font-size: 0.85rem;
+            padding: 6px 16px 12px;
+            font-size: 0.8rem;
             color: #888;
             flex-shrink: 0;
         }
 
         #continue-btn-container a {
             display: inline-block;
-            padding: 10px 28px;
+            padding: 10px 30px;
             background-color: #194E00;
             color: #fff;
             text-decoration: none;
@@ -131,7 +133,7 @@
             font-weight: bold;
             font-size: 14px;
             box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
     </style>
 </head>
@@ -148,19 +150,19 @@
         <section class="menu-section">
             <div class="book-menu">
                 <a href="book01.html">
-                    <img src="1x/book01.png" alt="ぼくはカエル" class="book-img">
+                    <img src="img/1x/book01.png" alt="ぼくはカエル" class="book-img">
                     <span class="book-title title-green">ぼくはカエル</span>
                 </a>
                 <a href="book02.html">
-                    <img src="1x/book02.png" alt="きみはだれ？" class="book-img">
+                    <img src="img/1x/book02.png" alt="きみはだれ？" class="book-img">
                     <span class="book-title title-blue">きみはだれ？</span>
                 </a>
                 <a href="book03.html">
-                    <img src="1x/book03.png" alt="きみのこえ" class="book-img">
+                    <img src="img/1x/book03.png" alt="きみのこえ" class="book-img">
                     <span class="book-title title-pink">きみのこえ</span>
                 </a>
                 <a href="book04.html">
-                    <img src="1x/book04.png" alt="ぼくのともだち ぐわぐわ" class="book-img">
+                    <img src="img/1x/book04.png" alt="ぼくのともだち ぐわぐわ" class="book-img">
                     <span class="book-title title-orange">ぼくのともだち<br>ぐわぐわ</span>
                 </a>
             </div>
