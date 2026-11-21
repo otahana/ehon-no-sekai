@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,8 +20,10 @@
         }
 
         html, body {
+            width: 100%;
+            height: 100vh;
             height: 100dvh;
-            overflow: hidden; /* スクロールさせずに1画面に収める */
+            overflow: hidden;
             font-family: "Kiwi Maru", serif;
             background-color: #ffffff;
         }
@@ -77,7 +80,6 @@
             padding: 8px 0;
         }
 
-        /* 左側：カメラ＆ジェスチャー案内 */
         .camera {
             flex: 1;
             max-width: 280px;
@@ -119,7 +121,6 @@
             line-height: 1.6;
         }
 
-        /* 右側：絵本＆セリフテキスト */
         .ehon {
             flex: 2;
             height: 100%;
@@ -133,7 +134,7 @@
 
         #storybook {
             max-width: 100%;
-            max-height: 46vh; /* 画面高さに合わせて自動縮小 */
+            max-height: 46vh;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -177,14 +178,14 @@
             <div class="camera">
                 <video id="webcam" autoplay playsinline muted></video>
                 <div class="gesture-guides">
-                    <img src="1x/handsUp.png" alt="手のポーズ">
-                    <img class="gif" src="1x/handsUp.gif" alt="動き方GIF">
+                    <img src="img/1x/handsUp.png" alt="手のポーズ">
+                    <img class="gif" src="img/1x/handsUp.gif" alt="動き方GIF">
                 </div>
                 <p>よめたら<br>うごきを まねして<br>つぎの ページに すすもう！</p>
             </div>
 
             <div class="ehon">
-                <img id="storybook" src="bookclose.png" alt="絵本ページ" title="クリックでもめくれます">
+                <img id="storybook" src="img/bookclose.png" alt="絵本ページ" title="クリックでもめくれます">
                 <div class="page" id="page-text">&nbsp;</div>
             </div>
         </section>
@@ -249,8 +250,7 @@
         function updatePage() {
             isAnimating = true;
             const image = pageImages[currentPage];
-            // 画像フォルダ直下のパスで読み込み
-            book.src = image;
+            book.src = `img/${image}`;
             pageTextElement.innerHTML = pageTexts[currentPage] || "&nbsp;";
 
             if (pageTexts[currentPage]) {
@@ -275,7 +275,6 @@
             updatePage();
         }
 
-        // マウスクリックでもめくれるように対応
         book.addEventListener("click", () => {
             if (!isCooldownActive()) nextPage();
         });
@@ -306,7 +305,7 @@
                     tf.setBackend('webgl').then(() => startPoseDetection());
                 };
             }).catch(err => {
-                console.warn("カメラが使用できない環境です（クリック操作は有効です）:", err);
+                console.warn("カメラが使用できない環境です:", err);
             });
         }
 
