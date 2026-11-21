@@ -5,103 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>えほんのせかい</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
     <style>
-    body {
-        background-color: #ffffff;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-        background-color: #194E00;
-        padding-top: 100px ;
-        padding-bottom: 100px;
-        margin-top: -30px;
-        box-shadow: 0 4px 3px rgba(11, 11, 11, 0.1);
-        border-bottom-left-radius: 80px;  
-        border-bottom-right-radius: 80px;
-    }
+        html, body {
+            height: 100dvh;
+            overflow: hidden; /* スクロールさせずに1画面に収める */
+            background-color: #ffffff;
+            text-align: center;
+            font-family: "Kiwi Maru", serif;
+        }
 
-    h1 {
-        color: #fff;
-        font-size: 50px;
-        letter-spacing: 1em;
-        font-family:"Kiwi Maru", serif;
-    }
+        main {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    p {
-        font-size: 24px;
-        color: #916C00;
-        letter-spacing: 0.3em;
-        border-bottom: 1.8px solid #916d00a3;
-        display: inline-block;
-        line-height: 65px;
-        font-weight: 700;
-        font-family:"Kiwi Maru", serif;
-    }
+        header {
+            background-color: #194E00;
+            padding: clamp(24px, 5vh, 48px) 16px;
+            box-shadow: 0 4px 8px rgba(11, 11, 11, 0.12);
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            flex-shrink: 0;
+        }
 
-    main {
-        padding: 2rem 1rem;
-    }
+        h1 {
+            color: #fff;
+            font-size: clamp(26px, 4.5vw, 44px);
+            letter-spacing: 0.6em;
+            padding-left: 0.6em; /* letter-spacing分の左右バランス補正 */
+        }
 
-    section{
-        padding: 30px;
-    }
+        .subtitle-section {
+            padding: 1vh 16px 0;
+            flex-shrink: 0;
+        }
 
-    .book-menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 120px;
-        margin-top: 1rem;
-    }
+        p.subtitle {
+            font-size: clamp(16px, 2.2vh, 22px);
+            color: #916C00;
+            letter-spacing: 0.25em;
+            border-bottom: 1.8px solid #916d00a3;
+            display: inline-block;
+            padding-bottom: 6px;
+            font-weight: 700;
+        }
 
-    .book-menu a {
-        text-decoration: none;
-        text-align: center;
-        width: 160px;
-    }
-    .book-title {
-        display: block;
-        margin-top: 0.5em;
-        font-size: 16px;
-        font-weight: bold;
-    }
+        .menu-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            min-height: 0;
+        }
 
-    .title-green {
-        color: #AF8D68;
-    }
+        .book-menu {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: clamp(20px, 5vw, 72px);
+            width: 100%;
+            max-width: 1000px;
+        }
 
-    .title-blue {
-        color: #6894AF;
-    }
+        .book-menu a {
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            max-width: 170px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .title-pink {
-        color: #B2AB67;
-    }
+        .book-img {
+            width: min(140px, 18vh);
+            height: auto;
+            max-height: 24vh;
+            object-fit: contain;
+            transition: transform 0.25s ease;
+        }
 
-    .title-orange {
-        color: #AF6888;
-    }
-    .book-img {
-        width: 150px;
-        height: auto;
-    }
+        .book-img:hover {
+            transform: scale(1.08);
+        }
 
-    .book-img:hover {
-        transform: scale(1.1);
-    }
+        .book-title {
+            display: block;
+            margin-top: 10px;
+            font-size: clamp(13px, 1.8vh, 16px);
+            font-weight: bold;
+            line-height: 1.4;
+        }
 
-    footer {
-        margin-top: 3rem;
-        padding: 1rem;
-        font-size: 0.9rem;
-        color: #888;
-    }
+        .title-green { color: #AF8D68; }
+        .title-blue { color: #6894AF; }
+        .title-pink { color: #B2AB67; }
+        .title-orange { color: #AF6888; }
 
+        footer {
+            padding: 10px 16px 14px;
+            font-size: 0.85rem;
+            color: #888;
+            flex-shrink: 0;
+        }
+
+        #continue-btn-container a {
+            display: inline-block;
+            padding: 10px 28px;
+            background-color: #194E00;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -109,55 +140,45 @@
         <header>
             <h1>えほんのせかい</h1>
         </header>
-        <section>
-            <p>すきな　えほんを　えらぼう</p>
+
+        <section class="subtitle-section">
+            <p class="subtitle">すきな えほんを えらぼう</p>
         </section>
-        <section>
+
+        <section class="menu-section">
             <div class="book-menu">
                 <a href="book01.html">
-                    <img src="img/1x/book01.png" alt="ぼくはカエル" class="book-img">
+                    <img src="1x/book01.png" alt="ぼくはカエル" class="book-img">
                     <span class="book-title title-green">ぼくはカエル</span>
                 </a>
                 <a href="book02.html">
-                    <img src="img/1x/book02.png" alt="きみはだれ？" class="book-img">
+                    <img src="1x/book02.png" alt="きみはだれ？" class="book-img">
                     <span class="book-title title-blue">きみはだれ？</span>
                 </a>
                 <a href="book03.html">
-                    <img src="img/1x/book03.png" alt="きみのこえ" class="book-img">
+                    <img src="1x/book03.png" alt="きみのこえ" class="book-img">
                     <span class="book-title title-pink">きみのこえ</span>
                 </a>
                 <a href="book04.html">
-                    <img src="img/1x/book04.png" alt="ぼくのともだち ぐわぐわ" class="book-img">
+                    <img src="1x/book04.png" alt="ぼくのともだち ぐわぐわ" class="book-img">
                     <span class="book-title title-orange">ぼくのともだち<br>ぐわぐわ</span>
                 </a>
             </div>
         </section>
+
         <footer>
             <div id="continue-btn-container"></div>
             &copy; 2025 えほんはいいぞ
         </footer>
     </main>
+
     <script>
         const lastPage = localStorage.getItem("lastPage");
-
-        // 今のページと違うならボタンを表示
         if (lastPage && lastPage !== window.location.href) {
             const container = document.getElementById("continue-btn-container");
-
             const button = document.createElement("a");
             button.href = lastPage;
             button.textContent = "▶ つづき";
-            button.style.display = "inline-block";
-            button.style.padding = "25px 50px";
-            button.style.backgroundColor = "#194E00";
-            button.style.color = "#fff";
-            button.style.textDecoration = "none";
-            button.style.borderRadius = "45px";
-            button.style.fontWeight = "bold";
-            button.style.fontSize = "18px";
-            button.style.boxShadow = "2px 2px 6px rgba(0,0,0,0.2)";
-            button.style.marginBottom = "30px";
-
             container.appendChild(button);
         }
     </script>
